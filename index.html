@@ -282,7 +282,7 @@
                 imgRotate = false;
             }
 
-            document.onmousemove = function(e) {
+            document.onmousemove = document.ontouchmove = function(e) {
                 let coord = currentCoord(e);
                 if (imgMove) {
                     document.getElementById('avatar_box').style.top = (coord.y - avatar_pos.y - moveBegin.y) + 'px';
