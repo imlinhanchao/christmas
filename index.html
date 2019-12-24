@@ -138,9 +138,11 @@
             var avatar_pos = document.getElementPos(document.getElementById('avatar'))
 
             function loadImage() {
-                // 载入图片生成 blob 链接
-                var imgUrl = window.URL.createObjectURL(document.getElementById('upload').files[0]);
-                document.getElementById('avatar_img').src = imgUrl;
+                var imgUrl = document.getElementById('avatar_img').src
+                if (document.getElementById('upload').files.length > 0) {
+                    imgUrl = window.URL.createObjectURL(document.getElementById('upload').files[0]);
+                    document.getElementById('avatar_img').src = imgUrl;
+                }
                 drawImage(imgUrl, mergeImage)
             }   
 
