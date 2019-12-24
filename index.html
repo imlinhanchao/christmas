@@ -234,6 +234,13 @@
                 document.getElementById('resize').onmouseup = resizeImgEnd;
                 document.getElementById('rotate').onmousedown = rotateImgStart;
                 document.getElementById('rotate').onmouseup = rotateImgEnd;
+
+                document.getElementById('avatar_template').ontouchstart = dragImgStart;
+                document.getElementById('avatar_template').ontouchend = dragImgEnd;
+                document.getElementById('resize').ontouchstart = resizeImgStart;
+                document.getElementById('resize').ontouchend = resizeImgEnd;
+                document.getElementById('rotate').ontouchstart = rotateImgStart;
+                document.getElementById('rotate').ontouchend = rotateImgEnd;
             }
 
             function dragImgStart(e) {
@@ -290,7 +297,7 @@
                 }
             }
 
-            document.onmouseup = function(e) {
+            document.onmouseup = document.ontouchend = function(e) {
                 imgMove = imgRotate = imgResize = false;
                 refreshImage()
             }
