@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>teach.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="%E8%BF%8E%E5%9B%BD%E5%BA%86%EF%BC%81%E5%A4%B4%E5%83%8F%E5%A4%A7%E4%BD%9C%E6%88%98%EF%BC%81">迎国庆！头像大作战！</h1>
+<p>前段时间，@微信官方 要国旗在朋友圈刷了屏。XXXXXXXX 各种前言引入</p>
+<p>下面，创智就来手把手教你实现一个超简版国庆头像生产器。</p>
+<h2 id="%E5%A4%B4%E5%83%8F%E9%A2%84%E8%A7%88">头像预览</h2>
+<p>首先，先写出一个最基本的网页结构：</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>头像大作战<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-comment">/* 这里写网页的样式 */</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>头像大作战<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--这里写我们的生成器代码--&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+            <span class="hljs-comment">// 这里写待会儿的 JavaScript 控制代码</span>
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>然后，我们要做到可以预览用户选择的头像，我们先来给网页加上一个文件选择控件，和图片标签，标签上加上 <code>id</code>，以便后面通过 Javascript 控制。</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--accept 限制了只能选择图片--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"upload"</span> <span class="hljs-attr">accept</span>=<span class="hljs-string">"image/*"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"avatar"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"avatar_img"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<p>接着，我们来写预览图片的代码，借助于 <code>URL.createObjectURL</code> 来加载图片。</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadImage</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// 载入图片生成 blob 链接</span>
+    <span class="hljs-keyword">var</span> imgUrl = <span class="hljs-built_in">window</span>.URL.createObjectURL(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'upload'</span>).files[<span class="hljs-number">0</span>]);
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_img'</span>).src = imgUrl;
+}
+</div></code></pre>
+<p>当用户选择图片时，就要载入图片，所以我们把 <code>loadImage</code> 绑定在 <code>upload</code> 的 <code>onchange</code> 事件里面：</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"upload"</span> <span class="hljs-attr">accept</span>=<span class="hljs-string">"image/*"</span> <span class="hljs-attr">onchange</span>=<span class="hljs-string">"loadImage()"</span>&gt;</span>
+</div></code></pre>
+<p>这样选择图片后，图片就会显示出来了。</p>
+<p><img src="./images/01.png" alt=""></p>
+<p>接着，我们要头像叠加的效果，我已经事先从腾讯的网站把素材爬下来了。可以在这儿下载：https://github.com/szisa/avatar_maker/tree/master/img</p>
+<p>我们把图片都存放在 <code>img</code> 目录。总共 4 种外框，分别命名为 <code>head0.png</code>, <code>head1.png</code>, <code>head2.png</code>, <code>head3.png</code>，另外，还抓多一张 <code>bg.png</code> 做背景。</p>
+<p>我们先用 <code>head0.png</code> 做样式。在头像预览的地方加入一个 <code>img</code> 标签，用来显示外框图片。</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"avatar"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./img/head0.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"avatar_template"</span>&gt;</span> <span class="hljs-comment">&lt;!-- 加入这一句 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"avatar_img"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<p>现在网页选了头像是这样的：</p>
+<p><img src="./images/02.png" alt=""></p>
+<p>这不是我们要的，外框太大，而且也没重叠在一起，这时就要靠 CSS 大法来帮忙了。在 <code>style</code> 加入下面代码：</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">body</span> {
+    <span class="hljs-comment">/* 设置从腾讯新闻偷来的背景图 */</span>
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#000</span> <span class="hljs-built_in">url</span>(./img/bg.png) no-repeat center;
+    <span class="hljs-comment">/* 让所有内容居中 */</span>
+    <span class="hljs-attribute">text-align</span>: center;
+}
+<span class="hljs-selector-id">#avatar</span> {
+    <span class="hljs-comment">/* 设置预览的框为 300 px */</span>
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">300px</span>;
+    <span class="hljs-comment">/* 设置相对定位，用来给 avatar_template 的绝对定位当坐标 */</span>
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-comment">/* 自动调节外边距，使之左右居中 */</span>
+    <span class="hljs-attribute">margin</span>: auto;
+    <span class="hljs-comment">/* 超出的内容隐藏 */</span>
+    <span class="hljs-attribute">overflow</span>: hidden;
+}
+<span class="hljs-selector-id">#avatar</span> <span class="hljs-selector-tag">img</span> {
+    <span class="hljs-comment">/* 设置图片的宽度和 avatar 一样 */</span>
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-id">#avatar_template</span> {
+    <span class="hljs-comment">/* 设置外框绝对定位，左上角对齐 */</span>
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<p>ok，到这里来有几个知识点重点讲解一下，只想赶快做出来的可以略过这部分。</p>
+<ol>
+<li>
+<p>margin: auto；<br>
+HTML 元素中，按照默认样式，可以被分为<strong>内联元素</strong>和<strong>块级元素</strong>。<strong>内联元素</strong>可以被 <code>text-align</code> 居中，而块级元素，则要靠外边距的的补齐来实现左右居中。<br>
+当设置<strong>块级元素</strong>的 <code>margin</code> 为 <code>auto</code> 时，浏览器就会自动计算左右外边距，将剩余空间平分到左右外边距，这样就实现了左右居中。</p>
+</li>
+<li>
+<p>position: absolute;<br>
+为了实现把外框覆盖在头像上，我们需要让外框图片脱离正常文档流，而<strong>绝对定位</strong>可以帮我们实现这一点。<br>
+<strong>绝对定位</strong>的定位原点则是通过包含块来决定的。我们需要让外框图片精准对齐 <code>#avatar</code> 的左上角，那么就需要让 <code>#avatar</code> 成为<strong>绝对定位</strong>的包含块，而只要给 <code>#avatar</code> 设置 <code>position</code> 且值不等于 <code>static</code>，他就会自动成为包含块。当如果设置 <code>fixed</code> 或 <code>absolute</code>，则会让标签脱离文档流，影响样式，因此，我们就给 <code>#avatar</code> 设置了 <code>position: relative</code>。</p>
+</li>
+</ol>
+<p>那么现在我们选择头像之后，就会变成这样：</p>
+<p><img src="./images/03.png" alt=""></p>
+<h2 id="%E5%A4%B4%E5%83%8F%E7%BB%98%E5%88%B6">头像绘制</h2>
+<p>现在就要来做保存图片的代码了，我们没办法直接把标签变成图片。但是，我们可以通过<code>canvas</code>，依次绘制两张图片，就可以实现图片的叠加了！</p>
+<p>首先，我们要给 HTML 里加入一个 <code>canvas</code> 标签：</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"cvs"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<p>然后，就要开始用图片绘制了。定义一个函数 <code>drawImage</code>，传入图片地址，绘制图片到画布：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawImage</span>(<span class="hljs-params">img</span>) </span>{
+    <span class="hljs-comment">// 取得 Canvas</span>
+    <span class="hljs-keyword">var</span> cvs = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'cvs'</span>);
+    <span class="hljs-keyword">var</span> size = <span class="hljs-number">300</span>;
+    <span class="hljs-comment">// 设定 canvas 宽高</span>
+    cvs.width = size;
+    cvs.height = size;
+    <span class="hljs-comment">// 取得 2d 画布</span>
+    <span class="hljs-keyword">var</span> ctx = cvs.getContext(<span class="hljs-string">'2d'</span>);
+    <span class="hljs-comment">// 新建图片对象，加载图片</span>
+    <span class="hljs-keyword">var</span> image = <span class="hljs-keyword">new</span> Image;
+    image.src = img;
+    image.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">// 加载完成后绘制 image 到(0,0)坐标，长宽重设为 size</span>
+        ctx.drawImage(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, size, size);
+    }
+}
+</div></code></pre>
+<p>然后，当用户选择图片后，我们就要把他画上去，所以在 <code>loadImage</code> 最后要加上 <code>drawImage</code> ：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadImage</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> imgUrl = <span class="hljs-built_in">window</span>.URL.createObjectURL(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'upload'</span>).files[<span class="hljs-number">0</span>]);
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_img'</span>).src = imgUrl;
+    <span class="hljs-comment">// 绘制用户选择的头像</span>
+    drawImage(imgUrl)
+}   
+</div></code></pre>
+<p>现在选择头像后，就会变成这样：</p>
+<p><img src="./images/04.png" alt=""></p>
+<p>接着，我们还得把外框绘制上去，因为后面还要提供更换外框的功能，把外框的地址作为参数传入到 <code>drawImage</code> ：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawImage</span>(<span class="hljs-params">img, frame</span>) </span>{
+    <span class="hljs-keyword">var</span> cvs = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'cvs'</span>);
+    <span class="hljs-keyword">var</span> size = <span class="hljs-number">300</span>;
+    cvs.width = size;
+    cvs.height = size;
+    <span class="hljs-keyword">var</span> ctx = cvs.getContext(<span class="hljs-string">'2d'</span>);
+    <span class="hljs-keyword">var</span> image = <span class="hljs-keyword">new</span> Image;
+    image.src = img;
+    image.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        ctx.drawImage(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, size, size);
+        <span class="hljs-comment">// 载入外框图片</span>
+        image = <span class="hljs-keyword">new</span> Image;
+        image.src = frame;
+        image.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-comment">// 绘制外框图片</span>
+            ctx.drawImage(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, size, size);
+        }
+    }
+}
+</div></code></pre>
+<p>那么调用的地方，就要变成这样：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadImage</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// 载入图片生成 blob 链接</span>
+    <span class="hljs-keyword">var</span> imgUrl = <span class="hljs-built_in">window</span>.URL.createObjectURL(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'upload'</span>).files[<span class="hljs-number">0</span>]);
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_img'</span>).src = imgUrl;
+    <span class="hljs-comment">// 再传入 avatar_template 的图片地址</span>
+    drawImage(imgUrl, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_template'</span>).src)
+}   
+</div></code></pre>
+<p>这时候，用户选择头像后，就会变成这样：</p>
+<p><img src="./images/05.png" alt=""></p>
+<p>这个 <code>canvas</code> 只是用来保存，那么可以把他隐藏起来，加上 CSS 样式 <code>style=&quot;display:none&quot;</code> 在 <code>canvas</code> 上。</p>
+<h2 id="%E5%A4%B4%E5%83%8F%E4%BF%9D%E5%AD%98">头像保存</h2>
+<p>接着，我们来做保存的部分。<code>canvas</code> 有一个方法 <code>toDataURL</code> 用来将内容生成成图片的 <strong>DataURL</strong>。那么我们只要把这个 <strong>DataURL</strong> 作为 <code>a</code> 标签的地址，利用 <code>a</code> 标签的 <code>download</code> 属性，模拟点击即可实现图片下载了。具体代码：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">downloadImage</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'cvs'</span>);
+
+    <span class="hljs-comment">// 导出图片 DataURL</span>
+    <span class="hljs-keyword">var</span> image = canvas.toDataURL(<span class="hljs-string">"image/png"</span>)
+
+    <span class="hljs-comment">// 创建一个 a 标签，设置 download 属性，点击时下载文件</span>
+    <span class="hljs-keyword">var</span> save_link = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'a'</span>);
+    save_link.href = image;
+    save_link.download =<span class="hljs-string">'avatar.png'</span>;
+    
+    <span class="hljs-comment">// 创建 click 模拟事件</span>
+    <span class="hljs-keyword">var</span> clickevent = <span class="hljs-built_in">document</span>.createEvent(<span class="hljs-string">'MouseEvents'</span>);
+    clickevent.initEvent(<span class="hljs-string">'click'</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>);
+    <span class="hljs-comment">// 触发点击事件</span>
+    save_link.dispatchEvent(clickevent);
+
+}
+</div></code></pre>
+<p>我们创建一个下载按钮用来下载图片，并把<code>downloadImage</code>绑定在按钮上</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"download"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"downloadImage()"</span>&gt;</span>下载<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<p>选择头像，点击下载，浏览器就会下载图片了，最后生成的图片：</p>
+<p><img src="./images/06.png" alt=""></p>
+<p>你学会了吗？你满足了吗？不！我不满足，我还要做到可以选择不同的外框。那么，让我们继续~</p>
+<h2 id="%E5%A4%96%E6%A1%86%E9%80%89%E6%8B%A9">外框选择</h2>
+<p>要切换外框，需要做两件事儿：</p>
+<ol>
+<li>换掉预览的 <code>avatar_template</code> 的图片地址；</li>
+<li>刷新 <code>canvas</code>，重新绘制头像；</li>
+</ol>
+<p>我们可以通过两个按钮，前后切换头像边框。那么，先加上两个按钮，就放在下载按钮的左右两侧：</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"prev"</span>&gt;</span>上一个<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"download"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"downloadImage()"</span>&gt;</span>下载<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"next"</span>&gt;</span>下一个<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+<p>上下切换边框很简单，只要计算边框的地址，然后更新 <code>avatar_template</code> 的图片地址就行了。为了节省解析当前切换到哪张边框的功夫，我们把当前边框的 Index 存放在图片的 <code>alt</code> 属性。</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">prevTemplate</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// 取出当前边框 Index</span>
+    <span class="hljs-keyword">var</span> current = <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_template'</span>).alt);
+    <span class="hljs-comment">// Index - 1，若小于 0 ， 则变成 3</span>
+    current = (current - <span class="hljs-number">1</span> + <span class="hljs-number">4</span>) % <span class="hljs-number">4</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_template'</span>).src = <span class="hljs-string">'img/head'</span> + current + <span class="hljs-string">'.png'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_template'</span>).alt = current;
+    <span class="hljs-comment">// 重新绘制 canvas</span>
+    loadImage();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextTemplate</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> current = <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_template'</span>).alt);
+    current = (current + <span class="hljs-number">1</span>) % <span class="hljs-number">4</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_template'</span>).src = <span class="hljs-string">'img/head'</span> + current + <span class="hljs-string">'.png'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'avatar_template'</span>).alt = current;
+    loadImage();
+}
+</div></code></pre>
+<p>接着，把函数绑定到按钮的 <code>onclick</code> 事件上，就大功告成了。</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"prev"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"prevTemplate()"</span>&gt;</span>上一个<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"download"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"downloadImage()"</span>&gt;</span>下载<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"next"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"nextTemplate()"</span>&gt;</span>下一个<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+<p>最后成品（https://szisa.github.io/avatar_maker/sample.html）：</p>
+<p><img src="./images/07.gif" alt=""></p>
+<h2 id="%E5%90%8E%E8%AE%B0">后记</h2>
+<p>认真跟着做到这一步的同学们都很棒哦~细心的同学可能会发现，预览的部分似乎不要也可以，直接使用 Canvas 作为预览不就可以了？事实上，确实是这样的。不过，加多了一个 HTML 的预览，是为了别的头像生成器去特地保留的！</p>
+<p>10月来了，12月还会远吗~[斜眼笑]如果把边框换成圣诞帽，是不是就可以用来生成圣诞帽头像了呢！但是圣诞帽可不会固定在一个位置，这就需要给用户自行调整的机会，所以，我们就需要通过 HTML 预览的部分提供给用户交互，因为 <code>canvas</code> 几乎没办法做交互。那么到底要怎么实现呢？且听下回分解！</p>
+
+</body>
+</html>
