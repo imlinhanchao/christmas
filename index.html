@@ -20,12 +20,15 @@
             height: 1.5em;
             vertical-align: middle;
         }
-        #avatar {
+        #avatar,.avatar {
             width: 300px;
             height: 300px;
             position: relative;
             margin: auto;
+        }
+        .avatar {
             border: 5px solid #000;
+
         }
         #avatar img {
             width: 100%;
@@ -74,21 +77,23 @@
                 <!--accept 限制了只能选择图片-->
                 <input type="file" name="" id="upload" accept="image/*" onchange="loadImage()" style="display: none;">
             </p>
+            <div class="avatar">
             <p id="avatar">
                 <span class="img-box" id="avatar_box">
                     <i class="fa fa-repeat" id="rotate" aria-hidden="true"></i>
-                    <img src="./img/01.png" alt="0" id="avatar_template">
+                    <img src="./img/01.png" alt="1" id="avatar_template">
                     <i class="fa fa-expand" id="resize" aria-hidden="true"></i>
                 </span>
                 <img src="img/default.png" alt="" id="avatar_img">
             </p>
+            </div>
             <p style="display: none;">
                 <canvas width="300" height="300" id="cvs"></canvas>
             </p>
             <p>
                 <button class="btn" id="prev" onclick="prevTemplate()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                 <button class="btn" id="download" onclick="downloadImage()"><i class="fa fa-download" aria-hidden="true"></i> </button>
-                <button class="btn" id="download" onchange="document.getElementById('upload').click()"><i class="fa fa-picture-o" aria-hidden="true"></i> </button>
+                <button class="btn" id="download" onclick="document.getElementById('upload').click();return false;"><i class="fa fa-picture-o" aria-hidden="true"></i> </button>
                 <button class="btn" id="next" onclick="nextTemplate()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
             </p>
         </section>
