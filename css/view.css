@@ -1,24 +1,70 @@
 body {
-    background: #000 url(../img/bg.png) no-repeat center;
-    margin: 0 auto;
+    /* background: #000 url(./img/bg.jpg) no-repeat center; */
     text-align: center;
 }
-.hide {
-    display: none;
+header {
+    font-family: "Ma Shan Zheng";
+    font-size: 2em;
 }
-#avatar {
-    width: 300px;
-    height: 300px;
+header img{
+    height: 1.5em;
+    vertical-align: middle;
+}
+#avatar,.avatar {
+    width: 100%;
     position: relative;
     margin: auto;
-    overflow: hidden;
+}
+.avatar {
+    width: 90%;
+    border: 5px solid #000;
+    max-width: 300px;
 }
 #avatar img {
     width: 100%;
+    display: block;
 }
-
-#avatar_template {
+.img-box {
+    user-select: none;
     position: absolute;
-    top: 0;
+    width: 100px;
+    left: 100px;
+    top: 100px;
+}
+.img-box img {
+    width: 100%;
+}
+.img-box #rotate {
+    position: absolute;
+    left: 0;
     right: 0;
+    top: -1em;
+}
+.img-box #resize {
+    position: absolute;
+    right: -.5em;
+    bottom: -.5em;
+    transform: rotate(90deg);
+}
+.img-box #mirrorv {
+    position: absolute;
+    margin: auto;
+    height: 2em;
+    left: -1em;
+    bottom: 0;
+    top: 0;
+}
+.btn {
+    vertical-align: middle;
+    background: transparent;
+    border: 0;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.5em;
+    height: 2em;
+    margin: 0 .5em;
+}
+:focus {
+    outline: none;
 }
