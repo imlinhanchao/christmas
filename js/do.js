@@ -261,5 +261,5 @@ function preLoadImage() {
 }
 
 preLoadImage();
-bindEvent();
 
+bindEvent();
