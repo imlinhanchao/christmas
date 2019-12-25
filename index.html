@@ -32,12 +32,13 @@
                     <img src="img/default.png" alt="" id="avatar_img">
                 </div>
             </div>
-            <p style="display: none;">
-                <canvas width="300" height="300" id="cvs"></canvas>
-            </p>
+            <div id="avatar_view" style="display: none;">
+                <p class="avatar"><canvas width="300" height="300" id="cvs"></canvas></pclass="avatar">
+                <p class="tip">长按或右键下载图片</p>
+            </div>
             <p>
                 <button class="btn" id="prev" onclick="prevTemplate()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                <button class="btn" id="download" onclick="downloadImage()"><i class="fa fa-download" aria-hidden="true"></i> </button>
+                <button class="btn" id="download" onclick="buildImage()"><i class="fa fa-check" aria-hidden="true" id="build_icon"></i> </button>
                 <button class="btn" id="download" onclick="document.getElementById('upload').click();return false;"><i class="fa fa-picture-o" aria-hidden="true"></i> </button>
                 <button class="btn" id="next" onclick="nextTemplate()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
             </p>

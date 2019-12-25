@@ -97,6 +97,20 @@ function drawImage(img, call) {
     }
 }
 
+function buildImage() {
+    if (document.getElementById('avatar_view').style.display == 'none') {
+        refreshImage();
+        document.getElementById('avatar_view').style.display = 'block';
+        document.getElementById('avatar_block').style.display = 'none';
+        document.getElementById('build_icon').className = 'fa fa-pencil-square-o'
+    }
+    else {
+        document.getElementById('avatar_view').style.display = 'none';
+        document.getElementById('avatar_block').style.display = 'block';
+        document.getElementById('build_icon').className = 'fa fa-check'
+    }
+}
+
 function downloadImage() {
     var canvas = document.getElementById('cvs');
 
